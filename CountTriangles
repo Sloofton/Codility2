@@ -1,0 +1,41 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+#Use selection sort to sort the array
+def selection_sort(a):
+    n = len(a)
+    i = 0
+    while i < n-1:
+        min1 = i
+        j = i + 1
+        while j < n:
+            if a[j] < a[min1]:
+                min1 = j
+            j += 1
+        if min1 != i:
+            a[i], a[min1] = a[min1], a[i]
+        i += 1
+
+def solution(A):
+    selection_sort(A)
+    
+    n = len(A)
+    count = 0
+    
+    #Create a for loop that for the last element to the second element
+    for k in range(n - 1, 1, -1):
+        left = 0
+        right = k - 1
+        
+        while left < right:
+            #Check if the left element + right element is greater than the kth index
+            if A[left] + A[right] > A[k]:
+                #The count will simply be the right index - left index since the array is
+                #already sorted form least to greatest integer
+                count += (right - left)
+                
+                #We move the right position left one at a time and repeat the process
+                right -= 1
+            else:
+                #If there are no more pairs left, increase the left index by 1 and continue
+                left += 1           
+    return count
