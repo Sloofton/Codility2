@@ -1,0 +1,13 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A):
+    #Create a list for unique values
+    unique = []
+    #If num is already not in unique, add it in the list
+    for num in A:
+        if num not in unique:
+            unique.append(num)
+    #Return the length of the list
+    return len(unique)
+    pass
