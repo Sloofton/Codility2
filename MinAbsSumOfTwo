@@ -1,0 +1,43 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+#Sort the array using selection sort
+def selection_sort(a):
+    n = len(a)
+    i = 0
+    while i < n-1:
+        min1 = i
+        j = i + 1
+        while j < n:
+            if a[j] < a[min1]:
+                min1 = j
+            j += 1
+        if min1 != i:
+            a[i], a[min1] = a[min1], a[i]
+        i += 1
+
+
+def solution(A):
+    selection_sort(A)
+   #Create 2 pointers and set the absolute min (absmin) to inf first
+    n = len(A)
+    left_pointer = 0
+    right_pointer = n - 1
+    absmin = float('inf')
+  #We sum the pointers at the end and find the minimum of absmin
+  W#with the current abs of the sum of the pointers
+    while left_pointer <= right_pointer:
+        
+        sum = A[left_pointer] + A[right_pointer]
+        
+        absmin = min(absmin, abs(sum))
+  #If the sum is greater than 0, then that means we should lower the sum and move
+  #the right pointer to the left and vice cersa when the sum is less than 0 by 
+  #increasing the left pointer by 1. If the sum is 0, then simplify return 0
+        if sum > 0:
+            right_pointer -= 1
+        elif sum < 0:
+            left_pointer += 1
+        else:
+            return 0
+    return absmin
+    pass
